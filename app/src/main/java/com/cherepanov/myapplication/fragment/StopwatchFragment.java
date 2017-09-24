@@ -10,16 +10,16 @@ import android.view.ViewGroup;
 import com.cherepanov.myapplication.R;
 
 /**
- * Created by Денис on 18.09.2017.
+ * Created by Денис on 21.09.2017.
  */
 
-public class ClockFragment extends Fragment {
+public class StopwatchFragment extends Fragment {
 
     private View view;
 
-    public static ClockFragment getInstance() {
+    public static StopwatchFragment getInstance(){
         Bundle args = new Bundle();
-        ClockFragment fragment = new ClockFragment();
+        StopwatchFragment fragment = new StopwatchFragment();
         fragment.setArguments(args);
 
         return fragment;
@@ -28,9 +28,9 @@ public class ClockFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        view = inflater.inflate(R.layout.clock_fragment, container, false);
-
+        view = inflater.inflate(R.layout.stopwatch_fragment, container, false);
         return view;
     }
+
+
 }

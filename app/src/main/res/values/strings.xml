@@ -8,6 +8,8 @@
     <string name="navigation_open">Open</string>
     <string name="navigation_close">Close</string>
 
-    <string name="test_text">Здесь что-то будет :)</string>
+    <string name="alarm_clock">Будильник</string>
+    <string name="stopwatch">Секундомер</string>
+    <string name="top">Открой меню :)</string>
 
 </resources>

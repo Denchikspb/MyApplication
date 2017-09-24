@@ -14,7 +14,7 @@
     <item
         android:id="@+id/menu_navigation_remind"
         android:icon="@mipmap/ic_message_text"
-        android:orderInCategory="2"
+        android:orderInCategory="3"
         android:title="@string/remind"/>
 
 </menu>

@@ -15,7 +15,8 @@
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -24,32 +25,25 @@
                 android:background="?attr/colorPrimary"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
 
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:tabIndicatorColor="@android:color/white"
-                app:tabIndicatorHeight="6dp"
-                app:tabSelectedTextColor="@android:color/white"
-                app:tabTextColor="@android:color/white"/>
-
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/view_pager"
+        <FrameLayout
+            android:id="@+id/container_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/floating_action_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_plus"
-            android:layout_gravity="end|bottom"
-            android:layout_margiknRight="@dimen/fl_action_btn_margin"
-            android:layout_marginBottom="@dimen/fl_action_btn_margin"/>
+
+
+        <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:id="@+id/floating_action_button"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@mipmap/ic_plus"-->
+            <!--android:layout_gravity="end|bottom"-->
+            <!--android:layout_marginRight="@dimen/fl_action_btn_margin"-->
+            <!--android:layout_marginBottom="@dimen/fl_action_btn_margin"/>-->
 
     </android.support.design.widget.CoordinatorLayout>
 

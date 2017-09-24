@@ -4,23 +4,23 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.cherepanov.myapplication.fragment.ClockFragment;
+import com.cherepanov.myapplication.fragment.AlarmClockFragment;
+import com.cherepanov.myapplication.fragment.StopwatchFragment;
 
 /**
  * Created by Денис on 18.09.2017.
  */
 
-public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
+public class TabsFragmentAdapter extends FragmentPagerAdapter {
 
     private String[] tabs;
 
-    public TabsPagerFragmentAdapter(FragmentManager fm) {
+    public TabsFragmentAdapter(FragmentManager fm) {
         super(fm);
 
         tabs = new String[]{
                 "Будильник",
-                "Секундомер",
-                "Tab 3"
+                "Секундомер"
         };
     }
 
@@ -31,17 +31,18 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
-        switch (position){
+        Fragment fragment;
+        switch (position) {
             case 0:
-                ClockFragment.getInstance();
+                fragment = AlarmClockFragment.getInstance();
+                break;
             case 1:
-                ClockFragment.getInstance();
-            case 2:
-                ClockFragment.getInstance();
+                fragment = StopwatchFragment.getInstance();
+                break;
+            default:
+                fragment = AlarmClockFragment.getInstance();
         }
-
-        return ClockFragment.getInstance();
+        return fragment;
     }
 
     @Override
