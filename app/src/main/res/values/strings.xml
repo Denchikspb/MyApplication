@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Органайзер</string>
     <string name="action_settings">Settings</string>
-    <string name="clock">Часы</string>
+    <string name="clock">Таймер</string>
     <string name="calculator">Калькулятор</string>
     <string name="remind">Напоминания</string>
 
@@ -11,5 +11,8 @@
     <string name="alarm_clock">Будильник</string>
     <string name="stopwatch">Секундомер</string>
     <string name="top">Открой меню :)</string>
+    <string name="alarm_on">Поставить</string>
+    <string name="alarm_off">Выключить</string>
+    <string name="test">test</string>
 
 </resources>
