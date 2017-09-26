@@ -10,4 +10,11 @@
         <item name="colorControlNormal">@color/colorWhite</item>
     </style>
 
+    <style name="myButtons" parent="Base.Widget.AppCompat.Button">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:height">80dp</item>
+    </style>
+
 </resources>
