@@ -188,7 +188,8 @@ public class CalculatorFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 valueTwo = Float.parseFloat(resultEdt.getText() + "");
-                resultInfoTV.setText(resultEdt.getText() + "" + valueTwo);
+                resultInfoTV.setText(resultInfoTV.getText() + "" + valueTwo);
+
                 float result = 0;
                 if (isAdd) {
                     result = valueOne + valueTwo;
@@ -210,6 +211,8 @@ public class CalculatorFragment extends Fragment {
                     resultEdt.setText(result + "");
                     isDiv = true;
                 }
+
+
             }
         });
     }
