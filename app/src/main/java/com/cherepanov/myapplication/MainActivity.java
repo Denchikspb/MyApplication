@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = CalculatorFragment.getInstance();
                 break;
             case R.id.menu_navigation_remind:
-                fragment = RemindFragment.getInstance();
+                fragment = RemindFragment.getInstance(this);
                 break;
             default:
                 fragment = TopFragment.getInstance();

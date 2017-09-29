@@ -199,17 +199,17 @@ public class CalculatorFragment extends Fragment {
                 if (isSub) {
                     result = valueOne - valueOne;
                     resultEdt.setText(result + "");
-                    isSub = true;
+                    isSub = false;
                 }
                 if (isMulti) {
                     result = valueOne * valueTwo;
                     resultEdt.setText(result + "");
-                    isMulti = true;
+                    isMulti = false;
                 }
                 if (isDiv) {
                     result = valueOne / valueTwo;
                     resultEdt.setText(result + "");
-                    isDiv = true;
+                    isDiv = false;
                 }
 
 
