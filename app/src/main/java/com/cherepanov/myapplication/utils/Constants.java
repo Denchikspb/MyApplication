@@ -1,4 +1,4 @@
-package com.cherepanov.myapplication;
+package com.cherepanov.myapplication.utils;
 
 /**
  * Created by Денис on 19.09.2017.

@@ -1,8 +1,10 @@
 package com.cherepanov.myapplication.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cherepanov.myapplication.R;
+import com.cherepanov.myapplication.activity.MainActivity;
+import com.cherepanov.myapplication.activity.NewRemindActivity;
 import com.cherepanov.myapplication.adapter.RemindAdapter;
 import com.cherepanov.myapplication.model.Remind;
 
@@ -25,8 +29,9 @@ public class RemindFragment extends Fragment {
 
     private View view;
     private Context context;
+    private FloatingActionButton addRemindFABtn;
 
-    public static RemindFragment getInstance(Context context){
+    public static RemindFragment getInstance(Context context) {
         Bundle args = new Bundle();
         RemindFragment fragment = new RemindFragment();
         fragment.setArguments(args);
@@ -41,7 +46,14 @@ public class RemindFragment extends Fragment {
         view = inflater.inflate(R.layout.remind_fragment, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new RemindAdapter(createMockListRemind(), context));
+        recyclerView.setAdapter(new RemindAdapter(createMockListRemind()));
+        addRemindFABtn = (FloatingActionButton) view.findViewById(R.id.add_remind_fab);
+        addRemindFABtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), NewRemindActivity.class));
+            }
+        });
         return view;
     }
 

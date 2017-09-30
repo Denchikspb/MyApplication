@@ -20,17 +20,15 @@ import java.util.List;
 public class RemindAdapter extends RecyclerView.Adapter<RemindAdapter.RemindViewHolder> {
 
     private List<Remind> remindList;
-    private Context context;
     private View view;
 
-    public RemindAdapter(List<Remind> remindList, Context context) {
+    public RemindAdapter(List<Remind> remindList) {
         this.remindList = remindList;
-        this.context = context;
     }
 
     @Override
     public RemindViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        view = LayoutInflater.from(context).inflate(R.layout.item_remind, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_remind, parent, false);
 
         return new RemindViewHolder(view);
     }

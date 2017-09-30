@@ -1,4 +1,4 @@
-package com.cherepanov.myapplication;
+package com.cherepanov.myapplication.receivers;
 
 import android.content.Context;
 import android.content.Intent;

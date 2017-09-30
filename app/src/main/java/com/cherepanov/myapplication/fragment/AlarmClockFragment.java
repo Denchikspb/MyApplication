@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.cherepanov.myapplication.AlarmReceiver;
+import com.cherepanov.myapplication.receivers.AlarmReceiver;
 import com.cherepanov.myapplication.R;
 
 import java.util.Calendar;

@@ -18,7 +18,9 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/fl_action_btn_margin"
         android:layout_marginRight="@dimen/fl_action_btn_margin"
+        android:clickable="true"
         app:backgroundTint="@color/colorPrimary"
+        app:pressedTranslationZ="12dp"
         android:src="@mipmap/ic_plus"/>
 
 </RelativeLayout>
