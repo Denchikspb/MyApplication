@@ -36,14 +36,7 @@
 
 
 
-        <!--<android.support.design.widget.FloatingActionButton-->
-            <!--android:id="@+id/floating_action_button"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:src="@mipmap/ic_plus"-->
-            <!--android:layout_gravity="end|bottom"-->
-            <!--android:layout_marginRight="@dimen/fl_action_btn_margin"-->
-            <!--android:layout_marginBottom="@dimen/fl_action_btn_margin"/>-->
+
 
     </android.support.design.widget.CoordinatorLayout>
 

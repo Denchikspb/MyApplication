@@ -47,8 +47,9 @@ public class RemindFragment extends Fragment {
 
     private List<Remind> createMockListRemind() {
         List list = new ArrayList();
-        list.add(new Remind("Купить хлеб"));
-        list.add(new Remind("Сделать презентацию"));
+        String description = "Какое то описание заметки и пускай оно будет длинным";
+        list.add(new Remind("Купить хлеб", description));
+        list.add(new Remind("Сделать презентацию", description));
 
         return list;
     }

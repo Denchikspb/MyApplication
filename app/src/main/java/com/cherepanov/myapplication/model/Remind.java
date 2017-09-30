@@ -6,9 +6,11 @@ package com.cherepanov.myapplication.model;
 
 public class Remind {
     private String title;
+    private String description;
 
-    public Remind(String title) {
+    public Remind(String title, String description) {
         this.title = title;
+        this.description = description;
     }
 
     public String getTitle() {
@@ -17,5 +19,13 @@ public class Remind {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

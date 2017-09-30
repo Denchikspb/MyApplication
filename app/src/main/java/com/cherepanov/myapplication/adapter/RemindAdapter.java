@@ -39,6 +39,7 @@ public class RemindAdapter extends RecyclerView.Adapter<RemindAdapter.RemindView
     public void onBindViewHolder(RemindViewHolder holder, int position) {
         Remind remind = remindList.get(position);
         holder.titleTV.setText(remind.getTitle());
+        holder.descriptionTV.setText(remind.getDescription());
     }
 
     @Override
@@ -50,12 +51,14 @@ public class RemindAdapter extends RecyclerView.Adapter<RemindAdapter.RemindView
 
         CardView cardView;
         TextView titleTV;
+        TextView descriptionTV;
 
         public RemindViewHolder(View itemView) {
             super(itemView);
 
             cardView = (CardView) itemView.findViewById(R.id.remind_card_view);
             titleTV = (TextView) itemView.findViewById(R.id.remind_title);
+            descriptionTV = (TextView) itemView.findViewById(R.id.remind_description);
         }
     }
 }
