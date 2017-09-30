@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.cherepanov.myapplication.R;
+import com.cherepanov.myapplication.db.OrganizerBaseHelper;
 import com.cherepanov.myapplication.fragment.AlarmClockFragment;
 import com.cherepanov.myapplication.fragment.CalculatorFragment;
 import com.cherepanov.myapplication.fragment.ContainerClockFragment;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
+    private OrganizerBaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        dbHelper = new OrganizerBaseHelper(getApplicationContext());
         initToolbar();
         initNavigationView();
         initTopFragment();

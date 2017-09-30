@@ -16,6 +16,7 @@ import com.cherepanov.myapplication.R;
 import com.cherepanov.myapplication.activity.MainActivity;
 import com.cherepanov.myapplication.activity.NewRemindActivity;
 import com.cherepanov.myapplication.adapter.RemindAdapter;
+import com.cherepanov.myapplication.db.tables.RemindTable;
 import com.cherepanov.myapplication.model.Remind;
 
 import java.util.ArrayList;
@@ -58,10 +59,10 @@ public class RemindFragment extends Fragment {
     }
 
     private List<Remind> createMockListRemind() {
-        List list = new ArrayList();
-        String description = "Какое то описание заметки и пускай оно будет длинным";
-        list.add(new Remind("Купить хлеб", description));
-        list.add(new Remind("Сделать презентацию", description));
+        List list = RemindTable.getRemindList(getActivity());
+//        String description = "Какое то описание заметки и пускай оно будет длинным";
+//        list.add(new Remind("Купить хлеб", description));
+//        list.add(new Remind("Сделать презентацию", description));
 
         return list;
     }

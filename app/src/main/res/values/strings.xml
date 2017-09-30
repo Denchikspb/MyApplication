@@ -36,5 +36,6 @@
     <string name="delete">Del</string>
     <string name="add">+</string>
     <string name="sub">-</string>
+    <string name="save">Готово</string>
 
 </resources>
