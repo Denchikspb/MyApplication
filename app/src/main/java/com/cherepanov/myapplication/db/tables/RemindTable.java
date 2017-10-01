@@ -11,6 +11,7 @@ import com.cherepanov.myapplication.model.Remind;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Денис on 30.09.2017.
@@ -50,6 +51,18 @@ public class RemindTable {
         return list;
     }
 
+    public static int clearDB(Context c) {
+        SQLiteDatabase dataBase = new OrganizerBaseHelper(c).getWritableDatabase();
+        return dataBase.delete(RemindTable.NAME, null, null);
+    }
+
+    public static int deleteRemind(Context c, UUID id) {
+        SQLiteDatabase dataBase = new OrganizerBaseHelper(c).getWritableDatabase();
+        Cursor cursor = dataBase.query(RemindTable.NAME, null, Cols.UUID + " = ?", /*new String[]{id.toString()}*/ new String[]{"a3679777-5b75-4974-9607-87bb9197b6c7"}, null, null, null);
+        int k = dataBase.delete(RemindTable.NAME, Cols.UUID + " = ?", new String[]{id.toString()});
+        dataBase.close();
+        return k;
+    }
 
     public static void addRemind(Remind remind, Context context) {
         ContentValues values = getContentValues(remind);

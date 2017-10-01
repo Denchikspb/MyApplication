@@ -17,6 +17,12 @@ public class Remind {
         this.id = UUID.randomUUID();
     }
 
+    public Remind(String title, String description, String id) {
+        this.title = title;
+        this.description = description;
+        this.id = UUID.fromString(id);
+    }
+
     public String getTitle() {
         return title;
     }

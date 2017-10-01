@@ -10,6 +10,8 @@
         android:layout_height="match_parent"
         android:padding="8dp"/>
 
+
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/add_remind_fab"
         android:layout_width="wrap_content"
@@ -19,8 +21,8 @@
         android:layout_marginBottom="@dimen/fl_action_btn_margin"
         android:layout_marginRight="@dimen/fl_action_btn_margin"
         android:clickable="true"
+        android:src="@mipmap/ic_plus"
         app:backgroundTint="@color/colorPrimary"
-        app:pressedTranslationZ="12dp"
-        android:src="@mipmap/ic_plus"/>
+        app:pressedTranslationZ="12dp"/>
 
 </RelativeLayout>

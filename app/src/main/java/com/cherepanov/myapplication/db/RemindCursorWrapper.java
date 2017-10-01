@@ -16,11 +16,11 @@ public class RemindCursorWrapper extends CursorWrapper {
     }
 
     public Remind getCrime() {
-        String uuidString = getString(getColumnIndex(RemindTable.Cols.UUID));
+        String uuid = getString(getColumnIndex(RemindTable.Cols.UUID));
         String title = getString(getColumnIndex(RemindTable.Cols.TITLE));
         String desc = getString(getColumnIndex(RemindTable.Cols.DESCRIPTION));
 
-        Remind remind = new Remind(title, desc);
+        Remind remind = new Remind(title, desc, uuid);
 
         return remind;
     }

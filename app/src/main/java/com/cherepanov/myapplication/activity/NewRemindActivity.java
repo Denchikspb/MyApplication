@@ -47,13 +47,14 @@ public class NewRemindActivity extends AppCompatActivity {
                 return true;
             case R.id.action_save:
                 saveResult();
+                onBackPressed();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void saveResult() {
-        Remind remind = new Remind(remindTitle.toString(), remindDescription.toString());
+        Remind remind = new Remind(remindTitle.getText().toString(), remindDescription.getText().toString());
         RemindTable.addRemind(remind, getApplicationContext());
     }
 }
