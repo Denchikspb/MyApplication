@@ -16,5 +16,10 @@
         android:icon="@mipmap/ic_message_text"
         android:orderInCategory="3"
         android:title="@string/remind"/>
+    <item
+        android:id="@+id/menu_navigation_translate"
+        android:icon="@mipmap/ic_google_translate"
+        android:orderInCategory="3"
+        android:title="@string/translate"/>
 
 </menu>

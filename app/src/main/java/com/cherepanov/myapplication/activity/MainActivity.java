@@ -18,6 +18,7 @@ import com.cherepanov.myapplication.fragment.CalculatorFragment;
 import com.cherepanov.myapplication.fragment.ContainerClockFragment;
 import com.cherepanov.myapplication.fragment.RemindFragment;
 import com.cherepanov.myapplication.fragment.TopFragment;
+import com.cherepanov.myapplication.fragment.TranslateFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menu_navigation_remind:
                 fragment = RemindFragment.getInstance(this);
+                break;
+            case R.id.menu_navigation_translate:
+                fragment = TranslateFragment.getInstance();
                 break;
             default:
                 fragment = TopFragment.getInstance();

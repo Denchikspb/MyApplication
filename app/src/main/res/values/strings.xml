@@ -37,5 +37,8 @@
     <string name="add">+</string>
     <string name="sub">-</string>
     <string name="save">Готово</string>
+    <string name="translate_text">Текст для перевода</string>
+    <string name="to_translate">Перевести</string>
+    <string name="translate">Переводчик</string>
 
 </resources>
