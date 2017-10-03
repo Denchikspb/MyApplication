@@ -19,6 +19,7 @@ import com.cherepanov.myapplication.fragment.ContainerClockFragment;
 import com.cherepanov.myapplication.fragment.RemindFragment;
 import com.cherepanov.myapplication.fragment.TopFragment;
 import com.cherepanov.myapplication.fragment.TranslateFragment;
+import com.cherepanov.myapplication.fragment.WeatherFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -89,6 +90,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menu_navigation_translate:
                 fragment = TranslateFragment.getInstance();
+                break;
+            case R.id.menu_navigation_weather:
+                fragment = WeatherFragment.getInstance();
                 break;
             default:
                 fragment = TopFragment.getInstance();

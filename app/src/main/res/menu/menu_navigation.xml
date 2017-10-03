@@ -19,7 +19,12 @@
     <item
         android:id="@+id/menu_navigation_translate"
         android:icon="@mipmap/ic_google_translate"
-        android:orderInCategory="3"
+        android:orderInCategory="4"
         android:title="@string/translate"/>
+    <item
+        android:id="@+id/menu_navigation_weather"
+        android:icon="@mipmap/ic_weather_partlycloudy"
+        android:orderInCategory="5"
+        android:title="@string/weather"/>
 
 </menu>

@@ -43,5 +43,6 @@
     <string name="translate_first_lang">Английский</string>
     <string name="translate_second_lang">Русский</string>
     <string name="change_lang">Поменять языки местами</string>
+    <string name="weather">Погода</string>
 
 </resources>
