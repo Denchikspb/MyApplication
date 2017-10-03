@@ -49,7 +49,7 @@ public class AlarmClockFragment extends Fragment {
         alarmTimePicker = (TimePicker) view.findViewById(R.id.timePicker);
         alarmOnBtn = (Button) view.findViewById(R.id.alarm_on_btn);
         alarmOffBtn = (Button) view.findViewById(R.id.alarm_off_btn);
-        textView = (TextView)view.findViewById(R.id.time_tv);
+        textView = (TextView) view.findViewById(R.id.time_tv);
         alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getActivity(), AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -83,15 +83,15 @@ public class AlarmClockFragment extends Fragment {
         int minute = alarmTimePicker.getCurrentMinute();
 
         String minuteStr = String.valueOf(minute);
-;
+        ;
         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-        if(minute < 10){
+        if (minute < 10) {
             minuteStr = "0" + minuteStr;
         }
         textView.setText("Будильник поставлен на " + hour + ":" + minuteStr);
     }
 
-    private void setTextTime(String s){
+    private void setTextTime(String s) {
         textView.setText(s);
     }
 
