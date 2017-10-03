@@ -3,6 +3,7 @@ package com.cherepanov.myapplication.fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -49,7 +50,14 @@ public class TranslateFragment extends Fragment {
             .build();
 
     private Link linkInterface = retrofit.create(Link.class);
-    Handler handler = new Handler(Looper.getMainLooper());
+    Handler handler = new Handler(Looper.getMainLooper()){
+        @Override
+        public void handleMessage(Message msg) {
+            Bundle bundle = msg.getData();
+            String text = bundle.getString("text");
+            resultEdt.setText(text);
+        }
+    };
 
     public static TranslateFragment getInstance() {
         Bundle args = new Bundle();
@@ -91,7 +99,11 @@ public class TranslateFragment extends Fragment {
 
                                 for (Map.Entry e : map.entrySet()) {
                                     if (e.getKey().equals("text")) {
-                                        resultEdt.setText(e.getValue().toString());
+                                        Message msg = handler.obtainMessage();
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("text", e.getValue().toString());
+                                        msg.setData(bundle);
+                                        handler.sendMessage(msg);
                                     }
                                 }
                             }
@@ -103,19 +115,4 @@ public class TranslateFragment extends Fragment {
             }
         });
     }
-//
-//    Runnable run = new Runnable() {
-//        @Override
-//        public void run() {
-//            handler
-//        }
-//    };
-//
-//    class Task extends AsyncTask<String, String, Void>{
-//
-//        @Override
-//        protected String doInBackground(Void... voids) {
-//            return null;
-//        }
-//    }
 }
