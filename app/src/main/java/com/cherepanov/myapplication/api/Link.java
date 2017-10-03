@@ -1,5 +1,8 @@
 package com.cherepanov.myapplication.api;
 
+import com.cherepanov.myapplication.api.pojo.TranslateResponse;
+
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -14,5 +17,5 @@ import retrofit2.http.POST;
 public interface Link {
     @FormUrlEncoded
     @POST("/api/v1.5/tr.json/translate")
-    Call<Object> translate(@FieldMap Map<String, String> map);
+    Call<TranslateResponse> translate(@FieldMap Map<String, String> map);
 }
