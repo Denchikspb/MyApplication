@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.cherepanov.myapplication.R;
 import com.cherepanov.myapplication.api.Link;
 import com.cherepanov.myapplication.api.pojo.TranslateResponse;
+import com.cherepanov.myapplication.utils.Constants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -48,20 +49,9 @@ public class TranslateFragment extends Fragment {
     private TextView secondLangTV;
     private ProgressBar progressBar;
 
-    private static final String URL = "https://translate.yandex.net";
-    private static final String KEY = "trnsl.1.1.20171002T214757Z.748035dae7a6438f.e9a3393b653b5db11ec11c991e36672bee53180e";
-
-    private static final String EN_RU = "en-ru";
-    private static final String RU_EN = "ru-en";
-
     private static int lang = 0;
 
-    private Retrofit retrofit = new Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(URL)
-            .build();
-
-    private Link linkInterface = retrofit.create(Link.class);
+    private Link linkInterface;
 
     public static TranslateFragment getInstance() {
         Bundle args = new Bundle();
@@ -83,8 +73,17 @@ public class TranslateFragment extends Fragment {
         secondLangTV = (TextView) view.findViewById(R.id.translate_lang_second);
         progressBar = (ProgressBar) view.findViewById(R.id.translate_progress_bar);
 
+        initLink();
         setupListener();
         return view;
+    }
+
+    private void initLink() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(Constants.URL)
+                .build();
+        linkInterface = retrofit.create(Link.class);
     }
 
     private void setupListener() {
@@ -107,9 +106,9 @@ public class TranslateFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 final Map<String, String> jsonMap = new HashMap<String, String>();
-                jsonMap.put("key", KEY);
+                jsonMap.put("key", Constants.KEY);
                 jsonMap.put("text", translateEdt.getText().toString());
-                jsonMap.put("lang", lang == 0 ? EN_RU : RU_EN);
+                jsonMap.put("lang", lang == 0 ? Constants.EN_RU : Constants.RU_EN);
                 Call<TranslateResponse> call = linkInterface.translate(jsonMap);
                 progressBar.setVisibility(View.VISIBLE);
                 call.enqueue(new Callback<TranslateResponse>() {
