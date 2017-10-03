@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ public class TranslateFragment extends Fragment {
     private ImageButton changeLangBtn;
     private TextView firstLangTV;
     private TextView secondLangTV;
+    private ProgressBar progressBar;
 
     private static final String URL = "https://translate.yandex.net";
     private static final String KEY = "trnsl.1.1.20171002T214757Z.748035dae7a6438f.e9a3393b653b5db11ec11c991e36672bee53180e";
@@ -79,12 +81,14 @@ public class TranslateFragment extends Fragment {
         changeLangBtn = (ImageButton) view.findViewById(R.id.translate_change_lang_btn);
         firstLangTV = (TextView) view.findViewById(R.id.translate_lang_first);
         secondLangTV = (TextView) view.findViewById(R.id.translate_lang_second);
+        progressBar = (ProgressBar) view.findViewById(R.id.translate_progress_bar);
 
         setupListener();
         return view;
     }
 
     private void setupListener() {
+        progressBar.setVisibility(View.GONE);
         changeLangBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,6 +111,7 @@ public class TranslateFragment extends Fragment {
                 jsonMap.put("text", translateEdt.getText().toString());
                 jsonMap.put("lang", lang == 0 ? EN_RU : RU_EN);
                 Call<TranslateResponse> call = linkInterface.translate(jsonMap);
+                progressBar.setVisibility(View.VISIBLE);
                 call.enqueue(new Callback<TranslateResponse>() {
                     @Override
                     public void onResponse(Call<TranslateResponse> call, Response<TranslateResponse> response) {
@@ -116,11 +121,13 @@ public class TranslateFragment extends Fragment {
                                 sb.append(iter);
                             }
                             resultEdt.setText(sb.toString());
+                            progressBar.setVisibility(View.GONE);
                         }
                     }
 
                     @Override
                     public void onFailure(Call<TranslateResponse> call, Throwable t) {
+                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(getContext(), "Не удалось перевести текст", Toast.LENGTH_SHORT).show();
                     }
                 });
