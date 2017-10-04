@@ -5,8 +5,11 @@ package com.cherepanov.myapplication.utils;
  */
 
 public class Constants {
-    public static final String URL = "https://translate.yandex.net";
-    public static final String KEY = "trnsl.1.1.20171002T214757Z.748035dae7a6438f.e9a3393b653b5db11ec11c991e36672bee53180e";
+    public static final String URL_TRANSLATE = "https://translate.yandex.net";
+    public static final String URL_WEATHER = "https://translate.yandex.net";
+
+    public static final String KEY_YANDEX_TRANSLATE = "trnsl.1.1.20171002T214757Z.748035dae7a6438f.e9a3393b653b5db11ec11c991e36672bee53180e";
+    public static final String KEY_WEATHER = "2f83d2bc544a76f4f5272a7ce3a88ea2";
 
     public static final String EN_RU = "en-ru";
     public static final String RU_EN = "ru-en";

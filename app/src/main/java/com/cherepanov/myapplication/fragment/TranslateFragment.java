@@ -1,9 +1,6 @@
 package com.cherepanov.myapplication.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -20,12 +17,8 @@ import com.cherepanov.myapplication.R;
 import com.cherepanov.myapplication.api.Link;
 import com.cherepanov.myapplication.api.pojo.TranslateResponse;
 import com.cherepanov.myapplication.utils.Constants;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -81,7 +74,7 @@ public class TranslateFragment extends Fragment {
     private void initLink() {
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(Constants.URL)
+                .baseUrl(Constants.URL_TRANSLATE)
                 .build();
         linkInterface = retrofit.create(Link.class);
     }
@@ -106,7 +99,7 @@ public class TranslateFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 final Map<String, String> jsonMap = new HashMap<String, String>();
-                jsonMap.put("key", Constants.KEY);
+                jsonMap.put("key", Constants.KEY_YANDEX_TRANSLATE);
                 jsonMap.put("text", translateEdt.getText().toString());
                 jsonMap.put("lang", lang == 0 ? Constants.EN_RU : Constants.RU_EN);
                 Call<TranslateResponse> call = linkInterface.translate(jsonMap);
