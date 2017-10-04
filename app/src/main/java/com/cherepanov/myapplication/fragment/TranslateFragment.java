@@ -17,6 +17,7 @@ import com.cherepanov.myapplication.R;
 import com.cherepanov.myapplication.api.Link;
 import com.cherepanov.myapplication.api.pojo.translate.TranslateResponse;
 import com.cherepanov.myapplication.utils.Constants;
+import com.cherepanov.myapplication.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,8 +45,6 @@ public class TranslateFragment extends Fragment {
 
     private static int lang = 0;
 
-    private Link linkInterface;
-
     public static TranslateFragment getInstance() {
         Bundle args = new Bundle();
         TranslateFragment fragment = new TranslateFragment();
@@ -66,17 +65,8 @@ public class TranslateFragment extends Fragment {
         secondLangTV = (TextView) view.findViewById(R.id.translate_lang_second);
         progressBar = (ProgressBar) view.findViewById(R.id.translate_progress_bar);
 
-        initLink();
         setupListener();
         return view;
-    }
-
-    private void initLink() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(Constants.URL_TRANSLATE)
-                .build();
-        linkInterface = retrofit.create(Link.class);
     }
 
     private void setupListener() {
@@ -102,6 +92,7 @@ public class TranslateFragment extends Fragment {
                 jsonMap.put("key", Constants.KEY_YANDEX_TRANSLATE);
                 jsonMap.put("text", translateEdt.getText().toString());
                 jsonMap.put("lang", lang == 0 ? Constants.EN_RU : Constants.RU_EN);
+                Link linkInterface = Utils.getLink(Constants.URL_TRANSLATE);
                 Call<TranslateResponse> call = linkInterface.translate(jsonMap);
                 progressBar.setVisibility(View.VISIBLE);
                 call.enqueue(new Callback<TranslateResponse>() {
