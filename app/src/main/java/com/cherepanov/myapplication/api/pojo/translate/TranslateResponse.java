@@ -1,4 +1,4 @@
-package com.cherepanov.myapplication.api.pojo;
+package com.cherepanov.myapplication.api.pojo.translate;
 
 import java.util.ArrayList;
 import java.util.List;
