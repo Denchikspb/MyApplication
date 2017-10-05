@@ -64,6 +64,11 @@ public class WeatherFragment extends Fragment{
         temperatureTV = (TextView) view.findViewById(R.id.current_temperature_field);
         weatherIconIV = (ImageView) view.findViewById(R.id.weather_icon);
 
+        rendererWeather();
+        return view;
+    }
+
+    private void rendererWeather(){
         Location location = getLocation();
         if (location == null) {
             Log.e("TAG", "No location");
@@ -72,7 +77,6 @@ public class WeatherFragment extends Fragment{
         double lat = location.getLatitude();
         double lon = location.getLongitude();
         loadWeather(String.valueOf(lat), String.valueOf(lon));
-        return view;
     }
 
     private Location getLocation(){
@@ -109,11 +113,9 @@ public class WeatherFragment extends Fragment{
                     OpenWeatherMap openWeatherMap = response.body();
                     if (openWeatherMap != null) {
                         currentCityTV.setText(openWeatherMap.getName());
-
                         DateFormat dateFormat = DateFormat.getDateInstance();
                         String date = dateFormat.format(new Date(openWeatherMap.getDt()));
                         lastUpdateTV.setText(date);
-
                         detailsWeatherTV.setText(openWeatherMap.getWeather().get(0).getDescription());
                         temperatureTV.setText(String.format("%.2f °C", openWeatherMap.getMain().getTemp()));
                         Picasso.with(getContext())
