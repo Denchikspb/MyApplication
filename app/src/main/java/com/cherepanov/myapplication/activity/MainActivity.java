@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new OrganizerBaseHelper(getApplicationContext());
         initToolbar();
         initNavigationView();
-        initTopFragment();
+        if (savedInstanceState == null)
+            initTopFragment();
     }
 
     private void initTopFragment() {
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         replaceFragmentToContainer(fragment);
     }
 
-    private void replaceFragmentToContainer(Fragment fragment){
+    private void replaceFragmentToContainer(Fragment fragment) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.container_fragment, fragment);
         ft.addToBackStack(null);
