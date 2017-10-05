@@ -1,7 +1,7 @@
 package com.cherepanov.myapplication.api;
 
-import com.cherepanov.myapplication.api.pojo.translate.TranslateResponse;
-import com.cherepanov.myapplication.api.pojo.weather.OpenWeatherMap;
+import com.cherepanov.myapplication.model.pojo.translate.TranslateResponse;
+import com.cherepanov.myapplication.model.pojo.weather.OpenWeatherMap;
 
 import java.util.Map;
 
@@ -11,7 +11,6 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**

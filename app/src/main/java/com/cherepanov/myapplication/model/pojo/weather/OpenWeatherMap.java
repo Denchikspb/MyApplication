@@ -1,4 +1,4 @@
-package com.cherepanov.myapplication.api.pojo.weather;
+package com.cherepanov.myapplication.model.pojo.weather;
 
 import java.util.List;
 

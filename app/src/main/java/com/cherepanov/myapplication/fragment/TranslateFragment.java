@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.cherepanov.myapplication.R;
 import com.cherepanov.myapplication.api.Link;
-import com.cherepanov.myapplication.api.pojo.translate.TranslateResponse;
+import com.cherepanov.myapplication.model.pojo.translate.TranslateResponse;
 import com.cherepanov.myapplication.utils.Constants;
 import com.cherepanov.myapplication.utils.Utils;
 
@@ -25,8 +25,6 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Денис on 02.10.2017.

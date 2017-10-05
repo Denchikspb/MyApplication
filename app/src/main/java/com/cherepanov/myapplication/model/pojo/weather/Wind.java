@@ -1,4 +1,4 @@
-package com.cherepanov.myapplication.api.pojo.weather;
+package com.cherepanov.myapplication.model.pojo.weather;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

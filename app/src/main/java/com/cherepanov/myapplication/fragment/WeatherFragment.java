@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import com.cherepanov.myapplication.R;
 import com.cherepanov.myapplication.api.Link;
-import com.cherepanov.myapplication.api.pojo.weather.OpenWeatherMap;
+import com.cherepanov.myapplication.model.pojo.weather.OpenWeatherMap;
 import com.cherepanov.myapplication.utils.Constants;
 import com.cherepanov.myapplication.utils.Utils;
 import com.squareup.picasso.Picasso;
