@@ -1,7 +1,15 @@
 package com.cherepanov.myapplication.fragment;
 
+import android.Manifest;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +24,10 @@ import com.cherepanov.myapplication.api.Link;
 import com.cherepanov.myapplication.api.pojo.weather.OpenWeatherMap;
 import com.cherepanov.myapplication.utils.Constants;
 import com.cherepanov.myapplication.utils.Utils;
+import com.squareup.picasso.Picasso;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,7 +37,7 @@ import retrofit2.Response;
  * Created by Денис on 03.10.2017.
  */
 
-public class WeatherFragment extends Fragment {
+public class WeatherFragment extends Fragment{
 
     private View view;
     private TextView currentCityTV;
@@ -52,23 +64,70 @@ public class WeatherFragment extends Fragment {
         temperatureTV = (TextView) view.findViewById(R.id.current_temperature_field);
         weatherIconIV = (ImageView) view.findViewById(R.id.weather_icon);
 
-        loadWeather();
+        Location location = getLocation();
+        if (location == null) {
+            Log.e("TAG", "No location");
+        }
+
+        double lat = location.getLatitude();
+        double lon = location.getLongitude();
+        loadWeather(String.valueOf(lat), String.valueOf(lon));
         return view;
     }
 
-    private void loadWeather() {
+    private Location getLocation(){
+        LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
+        String provider = locationManager.getBestProvider(new Criteria(), false);
+
+        checkPermission();
+        return locationManager.getLastKnownLocation(provider);
+    }
+
+    private void checkPermission(){
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{
+                    Manifest.permission.INTERNET,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_NETWORK_STATE,
+                    Manifest.permission.SYSTEM_ALERT_WINDOW,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+            }, 0);
+        }
+    }
+
+    private void loadWeather(String lat, String lon) {
         Link linkInterface = Utils.getLink(Constants.URL_WEATHER);
-        Call<OpenWeatherMap> call = linkInterface.getWeatherData(Constants.KEY_WEATHER);
+        Call<OpenWeatherMap> call = linkInterface.getWeatherDataByCoord(Constants.KEY_WEATHER, lat, lon, Constants.UNITS);
+        final ProgressDialog dlg = new ProgressDialog(getContext());
+        dlg.setTitle("Загружаются данные о погоде");
+        dlg.show();
         call.enqueue(new Callback<OpenWeatherMap>() {
             @Override
             public void onResponse(Call<OpenWeatherMap> call, Response<OpenWeatherMap> response) {
-                Toast.makeText(getContext(), "Yeah beach!", Toast.LENGTH_SHORT).show();
+                if (response.body() != null) {
+                    OpenWeatherMap openWeatherMap = response.body();
+                    if (openWeatherMap != null) {
+                        currentCityTV.setText(openWeatherMap.getName());
+
+                        DateFormat dateFormat = DateFormat.getDateInstance();
+                        String date = dateFormat.format(new Date(openWeatherMap.getDt()));
+                        lastUpdateTV.setText(date);
+
+                        detailsWeatherTV.setText(openWeatherMap.getWeather().get(0).getDescription());
+                        temperatureTV.setText(String.format("%.2f °C", openWeatherMap.getMain().getTemp()));
+                        Picasso.with(getContext())
+                                .load(Utils.getImage(openWeatherMap.getWeather().get(0).getIcon()))
+                                .into(weatherIconIV);
+                    }
+                }
+                dlg.dismiss();
             }
 
             @Override
             public void onFailure(Call<OpenWeatherMap> call, Throwable t) {
-                Toast.makeText(getContext(), "Fail, beach..", Toast.LENGTH_SHORT).show();
-                t.printStackTrace();
+                Toast.makeText(getContext(), "Не удалось получить информацию", Toast.LENGTH_SHORT).show();
+                dlg.dismiss();
             }
         });
     }

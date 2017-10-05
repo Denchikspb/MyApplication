@@ -13,4 +13,6 @@ public class Constants {
 
     public static final String EN_RU = "en-ru";
     public static final String RU_EN = "ru-en";
+
+    public static final String UNITS = "metric";
 }

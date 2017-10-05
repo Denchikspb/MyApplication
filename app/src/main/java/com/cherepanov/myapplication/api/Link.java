@@ -11,6 +11,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -23,6 +24,6 @@ public interface Link {
     Call<TranslateResponse> translate(@FieldMap Map<String, String> map);
 
     @Headers("Content-Type: application/json")
-    @GET("/data/2.5/weather?lat=35&lon=139")
-    Call<OpenWeatherMap> getWeatherData(@Query("appid") String appId);
+    @GET("/data/2.5/weather")
+    Call<OpenWeatherMap> getWeatherDataByCoord(@Query("appid") String appId, @Query("lat") String lat, @Query("lon") String lon, @Query("units") String units);
 }

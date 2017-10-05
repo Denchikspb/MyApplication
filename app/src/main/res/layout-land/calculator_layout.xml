@@ -28,6 +28,10 @@
         android:textSize="25sp" />
 
     <LinearLayout
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +45,7 @@
 
             <Button
                 android:id="@+id/seven_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -49,7 +53,7 @@
 
             <Button
                 android:id="@+id/eight_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -57,7 +61,7 @@
 
             <Button
                 android:id="@+id/nine_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -65,7 +69,7 @@
 
             <Button
                 android:id="@+id/div_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -80,7 +84,7 @@
 
             <Button
                 android:id="@+id/four_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -88,7 +92,7 @@
 
             <Button
                 android:id="@+id/five_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -96,7 +100,7 @@
 
             <Button
                 android:id="@+id/six_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -104,7 +108,7 @@
 
             <Button
                 android:id="@+id/multi_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -120,7 +124,7 @@
 
             <Button
                 android:id="@+id/one_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -128,7 +132,7 @@
 
             <Button
                 android:id="@+id/two_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -136,7 +140,7 @@
 
             <Button
                 android:id="@+id/three_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -144,7 +148,7 @@
 
             <Button
                 android:id="@+id/add_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -160,7 +164,7 @@
 
             <Button
                 android:id="@+id/clear_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -168,7 +172,7 @@
 
             <Button
                 android:id="@+id/zero_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -176,7 +180,7 @@
 
             <Button
                 android:id="@+id/dot_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -184,7 +188,7 @@
 
             <Button
                 android:id="@+id/sub_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -200,7 +204,7 @@
 
             <Button
                 android:id="@+id/result_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
@@ -208,12 +212,12 @@
 
             <Button
                 android:id="@+id/delete_btn"
-                style="@style/myButtons"
+                style="@style/myButtons_land"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:drawableBottom="@drawable/ic_backspace_black_24dp"
-                android:text="@string/delete"
+                android:gravity="center_horizontal|center_vertical"
+                android:drawableTop="@drawable/ic_backspace_black_24dp"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>

@@ -17,4 +17,8 @@ public class Utils {
                 .build();
         return retrofit.create(Link.class);
     }
+
+    public static String getImage(String icon) {
+        return String.format("https://openweathermap.org/img/w/%s.png", icon);
+    }
 }
