@@ -30,7 +30,7 @@
 
         <receiver android:name=".receivers.AlarmReceiver"/>
 
-        <activity android:name=".activity.NewRemindActivity"></activity>
+        <activity android:name=".activity.NewRemindActivity"/>
     </application>
 
 </manifest>

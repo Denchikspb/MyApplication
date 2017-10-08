@@ -12,16 +12,9 @@
 
     <style name="myButtons" parent="Base.Widget.AppCompat.Button">
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">30sp</item>
-        <item name="android:padding">8dp</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:padding">4dp</item>
         <item name="android:height">80dp</item>
-    </style>
-
-    <style name="myButtons_land" parent="Base.Widget.AppCompat.Button">
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:padding">8dp</item>
-        <item name="android:height">40dp</item>
     </style>
 
 </resources>

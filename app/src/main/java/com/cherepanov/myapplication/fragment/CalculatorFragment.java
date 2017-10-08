@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.cherepanov.myapplication.R;
@@ -34,14 +35,14 @@ public class CalculatorFragment extends Fragment {
     private Button divBtn;
     private Button multiBtn;
     private Button resultBtn;
-    private Button deleteBtn;
+    private ImageButton deleteBtn;
     private Button clearBtn;
     private EditText resultEdt;
     private TextView resultInfoTV;
     private View view;
 
-    private float valueOne;
-    private float valueTwo;
+    private double valueOne;
+    private double valueTwo;
     private boolean isAdd;
     private boolean isSub;
     private boolean isMulti;
@@ -150,9 +151,9 @@ public class CalculatorFragment extends Fragment {
                 if (resultEdt == null) {
                     resultEdt.setText("");
                 } else {
-                    valueOne = Float.parseFloat(resultEdt.getText() + "");
+                    valueOne = Double.valueOf(resultEdt.getText().toString());
                     isAdd = true;
-                    resultInfoTV.setText(resultEdt.getText() + "+");
+                    resultInfoTV.setText(resultEdt.getText() + " + ");
                     resultEdt.setText(null);
                 }
             }
@@ -160,37 +161,37 @@ public class CalculatorFragment extends Fragment {
         subBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                valueOne = Float.parseFloat(resultEdt.getText() + "");
+                valueOne = Double.valueOf(resultEdt.getText().toString());
                 isSub = true;
-                resultInfoTV.setText(resultEdt.getText() + "-");
+                resultInfoTV.setText(resultEdt.getText() + " - ");
                 resultEdt.setText(null);
             }
         });
         multiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                valueOne = Float.parseFloat(resultEdt.getText() + "");
+                valueOne = Double.valueOf(resultEdt.getText().toString());;
                 isMulti = true;
-                resultInfoTV.setText(resultEdt.getText() + "*");
+                resultInfoTV.setText(resultEdt.getText() + " * ");
                 resultEdt.setText(null);
             }
         });
         divBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                valueOne = Float.parseFloat(resultEdt.getText() + "");
+                valueOne = Double.valueOf(resultEdt.getText().toString());
                 isDiv = true;
-                resultInfoTV.setText(resultEdt.getText() + "/");
+                resultInfoTV.setText(resultEdt.getText() + " / ");
                 resultEdt.setText(null);
             }
         });
         resultBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                valueTwo = Float.parseFloat(resultEdt.getText() + "");
+                valueTwo = Double.valueOf(resultEdt.getText().toString());
                 resultInfoTV.setText(resultInfoTV.getText() + "" + valueTwo);
 
-                float result = 0;
+                double result;
                 if (isAdd) {
                     result = valueOne + valueTwo;
                     resultEdt.setText(result + "");
@@ -211,8 +212,14 @@ public class CalculatorFragment extends Fragment {
                     resultEdt.setText(result + "");
                     isDiv = true;
                 }
-
-
+            }
+        });
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resultEdt.setText(resultEdt.getText().toString().isEmpty()
+                        ? "" : resultEdt.getText().toString()
+                        .substring(0, resultEdt.getText().toString().length() - 1));
             }
         });
     }

@@ -36,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        if(!checkPermission()){
-//            finish();
-//        }
+        checkPermission();
 
         dbHelper = new OrganizerBaseHelper(getApplicationContext());
         initToolbar();
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             initTopFragment();
     }
 
-    private boolean checkPermission(){
+    private boolean checkPermission() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{
                     Manifest.permission.INTERNET,
