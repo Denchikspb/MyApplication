@@ -16,11 +16,9 @@ import android.view.MenuItem;
 
 import com.cherepanov.myapplication.R;
 import com.cherepanov.myapplication.db.OrganizerBaseHelper;
-import com.cherepanov.myapplication.fragment.AlarmClockFragment;
 import com.cherepanov.myapplication.fragment.CalculatorFragment;
 import com.cherepanov.myapplication.fragment.ContainerClockFragment;
 import com.cherepanov.myapplication.fragment.RemindFragment;
-import com.cherepanov.myapplication.fragment.TopFragment;
 import com.cherepanov.myapplication.fragment.TranslateFragment;
 import com.cherepanov.myapplication.fragment.WeatherFragment;
 
@@ -41,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new OrganizerBaseHelper(getApplicationContext());
         initToolbar();
         initNavigationView();
-        if (savedInstanceState == null)
-            initTopFragment();
+//        if(savedInstanceState == null){
+//            replaceFragmentToContainer(RemindFragment.getInstance(this));
+//        }
     }
 
     private boolean checkPermission() {
@@ -58,11 +57,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
-    }
-
-    private void initTopFragment() {
-        Fragment fragment = TopFragment.getInstance();
-        replaceFragmentToContainer(fragment);
     }
 
     private void initToolbar() {
@@ -85,17 +79,21 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+        final NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawers();
 
                 selectItem(item.getItemId());
+//                navigationView.setCheckedItem(item.getOrder());
                 return true;
             }
         });
+//        navigationView.getMenu().getItem(0).setChecked(true);
     }
+
+//    private void setCheckedItem
 
     private void selectItem(int itemId) {
         Fragment fragment;
@@ -116,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = WeatherFragment.getInstance();
                 break;
             default:
-                fragment = TopFragment.getInstance();
+                fragment = RemindFragment.getInstance(this);
         }
 
         replaceFragmentToContainer(fragment);

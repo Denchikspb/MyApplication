@@ -2,29 +2,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_navigation_clock"
-        android:icon="@mipmap/ic_clock"
+        android:id="@+id/menu_navigation_remind"
+        android:icon="@mipmap/ic_message_text"
         android:orderInCategory="1"
-        android:title="@string/clock"/>
+        android:title="@string/remind"/>
     <item
         android:id="@+id/menu_navigation_calculate"
         android:icon="@mipmap/ic_calculator"
         android:orderInCategory="2"
         android:title="@string/calculator"/>
     <item
-        android:id="@+id/menu_navigation_remind"
-        android:icon="@mipmap/ic_message_text"
-        android:orderInCategory="3"
-        android:title="@string/remind"/>
-    <item
         android:id="@+id/menu_navigation_translate"
         android:icon="@mipmap/ic_google_translate"
-        android:orderInCategory="4"
+        android:orderInCategory="3"
         android:title="@string/translate"/>
     <item
         android:id="@+id/menu_navigation_weather"
         android:icon="@mipmap/ic_weather_partlycloudy"
-        android:orderInCategory="5"
+        android:orderInCategory="4"
         android:title="@string/weather"/>
+    <item
+        android:id="@+id/menu_navigation_clock"
+        android:icon="@mipmap/ic_clock"
+        android:orderInCategory="5"
+        android:title="@string/clock"/>
 
 </menu>
